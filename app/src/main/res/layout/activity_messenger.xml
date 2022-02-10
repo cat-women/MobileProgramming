@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".MessengerActivity">
+
+    <RelativeLayout
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/userProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_account_circle_24"
+            android:onClick="showPopUPMenu"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/userProfile"
+            android:text="Chats"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <ImageView
+            android:id="@+id/hearderKOcamera"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/editUser"
+            android:src="@drawable/ic_baseline_camera_alt_24" />
+
+        <ImageView
+            android:id="@+id/editUser"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toLeftOf="@+id/logout"
+            android:src="@drawable/ic_baseline_edit_24" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:background="#f58167"
+            android:text="Logout"
+            android:onClick="logoutUser"
+            />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_title"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittextbg"
+        android:hint="Search"
+        android:textColorHint="@color/black"
+        android:textSize="30sp"
+
+        />
+
+    <LinearLayout
+        android:layout_below="@id/search"
+        android:id="@+id/story"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+>       <ImageView
+            android:id="@+id/cameraForVideoCall"
+            android:layout_width="41dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_baseline_camera_alt_24" />
+        <TextView
+            android:layout_below="@+id/cameraForVideoCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Make Video Call"
+            android:gravity="center"
+            android:textColor="@color/black"/>
+
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="20dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                >
+
+                <include layout="@layout/story" />
+                <include layout="@layout/story" />
+                <include layout="@layout/story" />
+                <include layout="@layout/story" />
+                <include layout="@layout/story" />
+                <include layout="@layout/story" />
+                <include layout="@layout/story" />
+                <include layout="@layout/story" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_below="@id/story"
+        android:id="@+id/chats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/chats" />
+            <include layout="@layout/chats" />
+            <include layout="@layout/chats" />
+            <include layout="@layout/chats" />
+
+            <include layout="@layout/chats" />
+            <include layout="@layout/chats" />
+            <include layout="@layout/chats" />
+            <include layout="@layout/chats" />
+
+            <include layout="@layout/chats" />
+            <include layout="@layout/chats" />
+            <include layout="@layout/chats" />
+            <include layout="@layout/chats" />
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:id="@+id/totalmessage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_chat_bubble_24"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Chats"
+            android:textSize="10sp"
+            android:layout_below="@+id/totalmessage"
+            android:layout_marginLeft="60dp"/>
+
+        <ImageView
+            android:id="@+id/totalactivepeople"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_people_alt_24"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="People"
+            android:textSize="10sp"
+            android:layout_below="@+id/totalactivepeople"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"/>
+
+
+    </RelativeLayout>
+</RelativeLayout>

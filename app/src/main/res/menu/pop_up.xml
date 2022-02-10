@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/changeName" android:title="Change Name "></item>
+    <item android:id="@+id/changeProfile" android:title="Change Profile "></item>
+    <item android:id="@+id/viewDetail" android:title="View Detail"></item>
+</menu>
