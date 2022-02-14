@@ -14,10 +14,10 @@ import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    static String name = "db_vaccinationsystem";
+    static String name = "MessengerDb";
     static int version = 1;
 
-    String createTableQuery = "CREATE TABLE if not exists 'users' (ID integer primary key,Name varchar(20) , Email varchar(20), Contact varchar(20), Gender varchar(10),Password varchar(20))";
+    String createTableQuery = "CREATE TABLE if not exists 'users' (ID integer primary key,Name varchar(20) , Email varchar(20), Contact varchar(20), Gender varchar(10),Username varchar(20),Password varchar(20))";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, name, null, version);

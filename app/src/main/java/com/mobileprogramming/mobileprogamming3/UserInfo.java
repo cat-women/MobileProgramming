@@ -1,8 +1,16 @@
 package com.mobileprogramming.mobileprogamming3;
 
 public class UserInfo {
-    private  String id,fullname,password,contact,gender,email;
+    private  String id,username, fullname,password,contact,gender,email;
     private byte[]image;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public void setImage(byte[] image) {
         this.image = image;
