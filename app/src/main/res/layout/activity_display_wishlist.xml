@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgstyle"
+    android:orientation="vertical"
+    tools:context=".poducts.ProductDisplay">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <TextView
+            style="@style/textstyle"
+            android:gravity="center"
+            android:text="Wish list"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <GridView
+        android:id="@+id/wishlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgstyle"
+        android:horizontalSpacing="10dp"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="10dp">
+
+    </GridView>
+
+
+</LinearLayout>

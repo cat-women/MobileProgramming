@@ -19,11 +19,14 @@ public class login extends AppCompatActivity {
     Button login, register;
     CheckBox rememberme;
     SharedPreferences sharedPreferences;
+    DatabaseHelper db;
+    UserInfo user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_form);
+        db = new DatabaseHelper(this);
 
         username = findViewById(R.id.username);
         pwd = findViewById(R.id.pwd);
@@ -34,38 +37,36 @@ public class login extends AppCompatActivity {
         login.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String usernameValue = username.getText().toString();
                 String pwdValue = pwd.getText().toString();
-                sharedPreferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                user = db.atuthenticatication(usernameValue);
 
-                String defaultUserName = sharedPreferences.getString("username", "");
-
-                String defaultPwd = sharedPreferences.getString("password","123");
-
-                Boolean rem = sharedPreferences.getBoolean("isRemember",false);
-
-
-                if(defaultUserName == "" || defaultPwd == ""){
+                if(usernameValue.isEmpty() || pwdValue.isEmpty()){
                     Toast.makeText(login.this, "values are empty  ", Toast.LENGTH_SHORT).show();
                     return;
-
                 }
-                if (usernameValue.equals(defaultUserName) && pwdValue.equals(defaultPwd)) {
-                    Toast.makeText(login.this, "login successful ", Toast.LENGTH_SHORT).show();
-                    if (rememberme.isChecked()) {
-                        sharedPreferences.edit().putBoolean("isRemember",true).apply();
-                    }else{
-                        sharedPreferences.edit().putBoolean("isRemember",false).apply();
+
+                if(usernameValue.equals(user.getUsername()) && pwdValue.equals(user.getPassword())){
+                    sharedPreferences = getSharedPreferences("LoggedIn", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("id",user.getId());
+                    editor.putString("username",user.getUsername());
+                    editor.putString("password",user.getPassword());
+                    if(rememberme.isChecked()){
+                        editor.putBoolean("rememer",true);
                     }
+                    editor.apply();
+
+                    Toast.makeText(login.this, "login successful ", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(login.this, MessengerActivity.class);
                     intent.putExtra("name",usernameValue);
                     startActivity(intent);
-
                     finish();
-                } else {
-                    Toast.makeText(login.this, "login failed ", Toast.LENGTH_SHORT).show();
-
+                }else{
+                    Toast.makeText(login.this, "User doesn't exits", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
         register.setOnClickListener(new OnClickListener() {
@@ -75,7 +76,8 @@ public class login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        if(sharedPreferences.getBoolean("isRemember",false)){
+
+//        if(sharedPreferences.getBoolean("rememer",true)){
 //            startActivity(new Intent(login.this,MessengerActivity.class));
 //            finish();
 //        }

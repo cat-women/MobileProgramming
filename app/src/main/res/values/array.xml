@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="product_category">
+        <item>Home appliance</item>
+        <item>Sports</item>
+        <item>Clothes</item>
+        <item>Beauty product</item>
+        <item>Shoes</item>
+        <item>plants </item>
+        <item>Pets</item>
+        <item>Second hand </item>
+    </string-array>
+</resources>

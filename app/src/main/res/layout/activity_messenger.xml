@@ -61,9 +61,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="5dp"
             android:background="#f58167"
-            android:text="Logout"
             android:onClick="logoutUser"
-            />
+            android:text="Logout" />
 
     </RelativeLayout>
 

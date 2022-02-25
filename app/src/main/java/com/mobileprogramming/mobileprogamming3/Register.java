@@ -83,13 +83,13 @@ public class Register extends AppCompatActivity {
         //Database call
         databse = new DatabaseHelper(this);
 
-//        editor.putString("username",usernameName);
-//        editor.putString("password ",pwdValue.toString());
-//        editor.putString("name",fullnameValue);
-//        editor.putString("email",emailValue);
-//        editor.putString("contact",contactValue);
-//        editor.putString("gender",genderValue);
-//        editor.apply();
+        editor.putString("username", usernameName);
+        editor.putString("password ", pwdValue.toString());
+        editor.putString("name", fullnameValue);
+        editor.putString("email", emailValue);
+        editor.putString("contact", contactValue);
+        editor.putString("gender", genderValue);
+        editor.apply();
 //        Toast.makeText(Register.this, "user added successfully ", Toast.LENGTH_SHORT).show();
 
 
