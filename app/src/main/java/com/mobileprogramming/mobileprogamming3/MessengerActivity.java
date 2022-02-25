@@ -2,6 +2,7 @@ package com.mobileprogramming.mobileprogamming3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,11 +19,11 @@ import android.widget.Toast;
 public class MessengerActivity extends AppCompatActivity {
 Button logout;
 SharedPreferences sharedPreferences;
+DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger);
-
 
         // values from login
         String name = getIntent().getStringExtra("name");

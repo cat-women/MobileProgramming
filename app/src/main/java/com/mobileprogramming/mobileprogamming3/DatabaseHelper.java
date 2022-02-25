@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -14,10 +15,10 @@ import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    static String name = "MessengerDb";
+    static String name = "MessengerDB";
     static int version = 1;
 
-    String createTableQuery = "CREATE TABLE if not exists 'users' (ID integer primary key,Name varchar(20) , Email varchar(20), Contact varchar(20), Gender varchar(10),Username varchar(20),Password varchar(20))";
+    String createTableQuery = "CREATE TABLE if not exists 'users' (ID integer primary key,Name varchar(20) , Email varchar(20), Contact varchar(20), Gender varchar(10),Username varchar(30),Password varchar(20))";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, name, null, version);
@@ -35,11 +36,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
     public void insertUser(ContentValues contentValues){
-            getWritableDatabase().insert("users",null, contentValues);
+        getWritableDatabase().insert("users",null, contentValues);
     }
 
 
-        //select user data
+    //select user data
     @SuppressLint("Range")
     public ArrayList<UserInfo>  getUserList(){
         String  sql = " SELECT * from users";
@@ -83,14 +84,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void updateUser(String id,ContentValues contentValues){
-            getWritableDatabase().update("users",contentValues,"ID= ?",new String[]{id});
+        getWritableDatabase().update("users",contentValues,"ID= ?",new String[]{id});
 
     }
 
 
     public void deleteUser(String id){
         getWritableDatabase().delete("users","ID="+id,null);
-
     }
 
 
@@ -103,6 +103,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }else
             return false;
     }
+//    @SuppressLint("Range")
+//    public int getUserId(String data){
+//        String sql = "SELECT 'ID' FROM users where Username = '"+data+"'";
+//        SQLiteStatement stm = getReadableDatabase().compileStatement(sql);
+//        int result = (int) stm.executeInsert();
+//        return result;
+//    }
 
+    @SuppressLint("Range")
+    public UserInfo  atuthenticatication(String username){
+        String  sql = " SELECT * from users WHERE Username  = "+"'"+username+"'";
+        UserInfo user;
+        user = new UserInfo();
+        try (Cursor cursor = getReadableDatabase().rawQuery(sql, null)) {
+
+
+            while (cursor.moveToNext()) {
+                user.setId(cursor.getString(cursor.getColumnIndex("ID")));
+                user.setUsername(cursor.getString(cursor.getColumnIndex("Username")));
+                user.setFullname(cursor.getString(cursor.getColumnIndex("Name")));
+                user.setContact(cursor.getString(cursor.getColumnIndex("Contact")));
+                user.setEmail(cursor.getString(cursor.getColumnIndex("Email")));
+                user.setGender(cursor.getString(cursor.getColumnIndex("Gender")));
+                user.setPassword(cursor.getString(cursor.getColumnIndex("Password")));
+            }
+            cursor.close();
+        }catch (Exception e){
+            Log.e("dbError",e.getMessage());
+        }
+        return user;
+    }
 
 }
