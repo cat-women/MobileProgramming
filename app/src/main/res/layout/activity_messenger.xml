@@ -14,12 +14,14 @@
         android:layout_height="wrap_content"
         android:padding="10dp">
 
-        <ImageView
-            android:id="@+id/userProfile"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_account_circle_24"
-            android:onClick="showPopUPMenu"/>
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@mipmap/medusa"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+
 
         <TextView
             android:id="@+id/title"
