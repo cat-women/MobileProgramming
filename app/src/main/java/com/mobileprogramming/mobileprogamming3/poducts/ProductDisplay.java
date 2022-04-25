@@ -9,18 +9,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
-import com.mobileprogramming.mobileprogamming3.AdminActivity;
-import com.mobileprogramming.mobileprogamming3.MessengerActivity;
+import com.mobileprogramming.mobileprogamming3.camera.CameraActivity;
+import com.mobileprogramming.mobileprogamming3.MapsActivity;
 import com.mobileprogramming.mobileprogamming3.R;
 import com.mobileprogramming.mobileprogamming3.Wishlist.DisplayWishlistActivity;
 
@@ -106,16 +103,16 @@ public class ProductDisplay extends AppCompatActivity {
             case R.id.logout:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setCancelable(true);
-                builder.setTitle("Are you sure ?");
+                builder.setTitle("Are you sure, you want to logout?");
                 builder.setPositiveButton("Sure", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         SharedPreferences sharedPreferences = getSharedPreferences("LoggedIn", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.clear().commit();
-//                        deleteSharedPreferences("username");
-//                        deleteSharedPreferences("passoord");
-//                        deleteSharedPreferences("id");
+                        deleteSharedPreferences("username");
+                        deleteSharedPreferences("passoord");
+                        deleteSharedPreferences("id");
                     }
                 });
                 builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
@@ -127,6 +124,14 @@ public class ProductDisplay extends AppCompatActivity {
                 AlertDialog dailog = builder.create();
                 dailog.show();
                 break;
+            case R.id.map:
+                startActivity(new Intent(ProductDisplay.this, MapsActivity.class));
+                break;
+
+            case R.id.camera:
+                startActivity(new Intent(ProductDisplay.this, CameraActivity.class));
+                break;
+
         }
         return super.onOptionsItemSelected(item);
     }

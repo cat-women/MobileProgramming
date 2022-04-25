@@ -5,8 +5,14 @@
       <map>
         <entry key="..\:/MP/mobileProgamming3/app/src/main/res/drawable/edittextbg.xml" value="0.1814814814814815" />
         <entry key="..\:/MP/mobileProgamming3/app/src/main/res/layout/activity_add_product.xml" value="0.12228260869565218" />
+        <entry key="..\:/MP/mobileProgamming3/app/src/main/res/layout/activity_camera.xml" value="0.1" />
+        <entry key="..\:/MP/mobileProgamming3/app/src/main/res/layout/activity_display_wishlist.xml" value="0.11141304347826086" />
+        <entry key="..\:/MP/mobileProgamming3/app/src/main/res/layout/activity_maps.xml" value="0.11141304347826086" />
+        <entry key="..\:/MP/mobileProgamming3/app/src/main/res/layout/card_layout.xml" value="0.11141304347826086" />
+        <entry key="..\:/MP/mobileProgamming3/app/src/main/res/layout/images_detail_activity.xml" value="0.11141304347826086" />
         <entry key="..\:/MP/mobileProgamming3/app/src/main/res/layout/login_form.xml" value="0.14764492753623187" />
         <entry key="..\:/MP/mobileProgamming3/app/src/main/res/layout/register.xml" value="0.12771739130434784" />
+        <entry key="..\:/MP/mobileProgamming3/app/src/main/res/menu/product_menu.xml" value="0.15625" />
         <entry key="..\:/mobileProgamming3/app/src/main/res/drawable/edittextbg.xml" value="0.1" />
         <entry key="..\:/mobileProgamming3/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.12962962962962962" />
         <entry key="..\:/mobileProgamming3/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1259259259259259" />
