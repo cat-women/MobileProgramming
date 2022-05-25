@@ -9,11 +9,11 @@ Android Programming  and SQLite
 
 -Wish List 
 
-![wishlsit] (https://github.com/cat-women/MobileProgramming/blob/class/app/src/main/res/drawable/wishlist.jpg)
+![wishlsit](https://github.com/cat-women/MobileProgramming/blob/class/app/src/main/res/drawable/wishlist.jpg)
 
 - Map 
 
-![map] (https://github.com/cat-women/MobileProgramming/blob/class/app/src/main/res/drawable/map.jpg)
+![map](https://github.com/cat-women/MobileProgramming/blob/class/app/src/main/res/drawable/map.jpg)
 
 - Api data fetching 
 
